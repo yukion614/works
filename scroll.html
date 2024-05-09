@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScrollBy 示例</title>
+<style>
+    .scrollable {
+        width: 300px;
+        height: 200px;
+        overflow: auto;
+        border: 1px solid black;
+    }
+    .content {
+        width: 600px;
+        height: 600px;
+        background-color: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+
+<div class="scrollable" id="scrollableElement">
+    <div class="content">
+        <!-- 这里放置大量内容以产生滚动条 -->
+    </div>
+</div>
+
+<button onclick="scrollDown()">向下滚动</button>
+<button onclick="scrollRight()">向右滚动</button>
+
+<script>
+function scrollDown() {
+    const element = document.getElementById('scrollableElement');
+    element.scrollBy(0, 100); // 向下滚动 100px
+}
+
+function scrollRight() {
+    const element = document.getElementById('scrollableElement');
+    element.scrollBy(100, 0); // 向右滚动 100px
+}
+</script>
+
+</body>
+</html>

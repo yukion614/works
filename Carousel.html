@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- bootstrap icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <!-- jquery  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        background-image: url("");
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* box-sizing: content-box; */
+        /* display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        /* width: 100%;
+        height: 100vh;
+        background-color: bisque;  */
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .scroll_wrapper{
+        /* width: 936px; */
+        width: 786px;
+
+       
+    }
+    .buttons{
+       position: relative;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-between;
+        top:70px;
+        
+
+    }
+    .scroll_wrapper .button{
+        position: relative;
+        background-color: black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .scroll_wrapper .button#prev{
+        visibility:hidden;
+    
+    }
+    /* .scroll_wrapper .button#next{
+
+    } */
+    .img_list{
+        display: grid;
+        grid-template-columns: repeat(10,1fr);
+        gap: 18px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .img_list::-webkit-scrollbar{
+        display: none;
+    }
+   
+    .scroll_wrapper .img_list img{
+        margin: 0;
+        width: 250px;
+        height:  250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .slider_scrollbar{
+        height: 24px;
+        /* background-color: red; */
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .slider_scrollbar .slider_track{
+        height: 2px;
+        width: 100%;
+        background-color: white;
+        border-radius: 4px;
+        position: relative;
+        border-radius: 4px;
+    }
+    .slider_scrollbar:hover .slider_track{
+        height: 4px;
+    }
+    
+    .slider_scrollbar .scrollbar-thumb{
+        position: absolute;
+        height: 100%;
+        width: 20%;
+        background-color:black;
+        border-radius: inherit;
+        border-radius: inherit;
+        cursor: grab;
+    }
+    .slider_scrollbar .scrollbar-thumb:active{
+        cursor: grabbing;
+        height: 8px;
+        top: -2px;
+
+    }
+    /* ????意義不明 */
+    .slider_scrollbar .scrollbar-thumb::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -10px;
+        bottom: -10px;
+    }
+    .scroll_wrapper .img_list img:hover{
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    }
+    .title {
+        color: white;
+        font-size: 3em;
+        text-shadow: 1px 1px 10px rgb(0, 0, 0,0.9);
+    }
+    .des{
+        color: white;
+        text-shadow: 1px 1px 10px rgb(0, 0, 0,0.9);
+        margin-bottom: 16px;
+
+    }
+    .see_btn{
+        width: 140px;
+        height: 30px;
+        border-radius: 8px;
+        border-style: none;
+    }
+    .see_btn:hover{
+        box-shadow: 1px 1px 10px rgb(0, 0, 0,0.2);
+    }
+</style>
+
+<script>
+    
+ 
+   //
+    const initSlider = ()=>{
+       
+        const imgList = document.querySelector(".img_list");
+        const SliderBtns = document.querySelectorAll(".scroll_wrapper .buttons .button");
+        
+       
+        const sliderScrollbar = document.querySelector (" .container .slider_scrollbar");
+        const scrollbarTmumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+
+        scrollbarTmumb.addEventListener('mousedown',(e)=>{
+            // 取得按下的位置
+            const startX = e.clientX;
+            const thumbPosition = scrollbarTmumb.offsetLeft;
+
+            const handleMouseMove = (e)=>{
+                const deltaX = e.clientX - startX;
+                const newThumbPosition = thumbPosition + deltaX;
+
+                const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarTmumb.offsetWidth;
+                const boundedPosition = Math.max(0,Math.min(maxThumbPosition , newThumbPosition));
+                scrollbarTmumb.style.left = `${boundedPosition}px`;
+
+                const scrollPosition =(boundedPosition / maxThumbPosition) * maxScrollLeft;
+                imgList.scrollLeft = scrollPosition;
+            }
+            const handleMouseUp = ()=>{
+                document.removeEventListener('mousemove',handleMouseMove);
+                document.removeEventListener('mouseup',handleMouseUp);
+            }
+
+            document.addEventListener('mousemove',handleMouseMove);
+            document.addEventListener('mouseup',handleMouseUp);
+        })
+
+        SliderBtns.forEach(button => {
+            button.addEventListener('click',()=>{
+                // console.log('is click');
+                const direction = button.id === 'prev' ? -1:1;
+                // console.log(imgList.clientWidth);
+                const scrollAmount = imgList.clientWidth * direction;
+                //次前進三張＝＝９００
+                imgList.scrollBy({left: scrollAmount , behavior:'smooth' });
+            });
+        })
+       
+
+        const maxScrollLeft = imgList.scrollWidth - imgList.clientWidth;
+        const handleScrollBtn = ()=>{
+             /* visibility:hidden; */
+            SliderBtns[0].style.visibility = imgList.scrollLeft <= 0 ? 'hidden' : 'visible';
+            SliderBtns[1].style.visibility = imgList.scrollLeft >= maxScrollLeft ? 'hidden' : 'visible';
+        }
+
+        const  updataScrollThumsPositoin = ()=>{
+            const scrollPosition = imgList.scrollLeft;
+            // const thumbPosition =  imgList.clientWidth;
+            const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarTmumb.offsetWidth);
+            scrollbarTmumb.style.left = `${thumbPosition}px`;
+        }
+
+        imgList.addEventListener('scroll',()=>{
+            handleScrollBtn();
+            updataScrollThumsPositoin();
+        })
+        //
+        const backgroundImage = document.body;
+        const title = document.querySelector(".container .scroll_wrapper .title");
+        const des = document.querySelector(".container .scroll_wrapper .des");
+
+        // // 點選後變更背景圖片
+        const imgs = document.querySelectorAll('.container .scroll_wrapper .img_list');
+
+
+      
+        imgs.forEach((img) => {
+            img.addEventListener('mousedown', (e) => {
+                const imgUrl = e.target.getAttribute('src');
+             
+                title.innerHTML =  e.target.getAttribute('data-name');
+                des.innerHTML = e.target.getAttribute('data-description');
+                backgroundImage.style.backgroundImage =`url("${imgUrl}")`;
+
+            });
+        });
+     
+        //點擊 see more 後變更文字
+        const seeMoreBtn = document.getElementById('seeMore');
+        const updateTitleDescription = () =>{
+            seeMoreBtn.addEventListener('click',()=>{
+
+            })
+        }
+    }
+
+    window.addEventListener('load',initSlider);
+
+    //讀取圖片
+    $.ajax({
+        url:'imgdata.json',
+        dataType:'json',
+        success:function(data){
+            //顯示圖片文字
+            const AbackgroundImage = document.body;
+            AbackgroundImage.style.backgroundImage =`url("${data[0].imgSrc}")`;
+            const Atitle = document.querySelector(".container .scroll_wrapper .title");
+            Atitle.innerHTML = data[0].title;
+            const Ades = document.querySelector(".container .scroll_wrapper .des");
+            Ades.innerHTML = data[0].description;
+
+            // data.forEach(function(item){
+                
+            //     // -----創建div---------
+            //     var imgNode = $(`
+            //         <img src="${item.imgSrc}" data-name="${item.title}" data-description="${item.description}">
+            //     `)
+            //     imgNode.appendTo('.img_list');
+            // })
+            //
+            
+
+        }
+        ,error:function(xhr, status, error){
+            console.error(status, error);
+        }
+        
+    });
+</script>
+<body>
+
+    <div class="container">
+        <div class="scroll_wrapper">
+            <div class="title">
+                TITLE
+            </div>
+            <div class="des">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione earum maiores quaerat delectus consectetur non animi necessitatibus consequatur officia? Voluptatem at ex itaque officia obcaecati, accusantium sint modi pariatur ut!
+            </div>
+            <button class="see_btn" id="seeMore"> see more</button>
+            <div class="buttons">
+                <div class="button" id="prev"><i class="bi bi-caret-left"></i></div>
+                <div class="button" id="next"><i class="bi bi-caret-right"></i></div>
+            </div>
+
+            <div class="img_list">
+                <!-- <img src="" alt=""> -->
+                <img src="/img/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf_105762-2224.jpg" alt="">
+                <img src="/img/beautiful-model-girl-with-perfect-fresh-clean-skin-youth-skin-care-concept-isolated-pastel-brown-background_658552-32.jpg" alt="">
+                <img src="/img/dynamic-portrait-young-man-woman-dancing-hiphop-isolated-black-background-with-mixed-lights-effect_155003-46269.jpg" alt="">
+                <img src="/img/majestic-mountain-peak-tranquil-winter-landscape-generated-by-ai_188544-15662.jpg" alt="">
+                <img src="/img/modern-podium-product-design-against-backdrop-tropical-forest_1268-31490.jpg" alt="">
+                <img src="/img/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="">
+            </div>
+            <div class="slider_scrollbar">
+                <div class="slider_track">
+                    <div class="scrollbar-thumb">
+
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
