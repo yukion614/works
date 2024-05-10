@@ -44,11 +44,14 @@
        
     }
     .buttons{
-       position: relative;
+        
+        position: relative;
         display: flex;
         /* flex-direction: column; */
         justify-content: space-between;
-        top:70px;
+        width: 850px;
+        left: -30px;
+        top:110px;
 
         
 
@@ -64,14 +67,19 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        
+        transition: transform 0.5s ease;
+    }
+    .scroll_wrapper .button:hover{
+        background-color: gray;
+
+        
     }
     .scroll_wrapper .button#prev{
         visibility:hidden;
     
     }
-    /* .scroll_wrapper .button#next{
 
-    } */
     .img_list{
         display: grid;
         grid-template-columns: repeat(10,1fr);
@@ -79,20 +87,48 @@
         overflow-x: auto;
         scrollbar-width: none;
         margin-bottom: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        /* padding-top: 10px;
+        padding-bottom: 10px; */
+        padding: 10px;
+   
     }
     .img_list::-webkit-scrollbar{
         display: none;
     }
    
-    .scroll_wrapper .img_list img{
-        margin: 0;
+    .scroll_wrapper .img_list div{
         width: 250px;
-        height:  250px;
-        object-fit: cover;
+        height:  170px;
         border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+       
+
     }
+
+    .scroll_wrapper .img_list div  img{
+        max-width: 120%;
+  
+        border-radius: inherit;
+    
+    }
+    .scroll_wrapper .img_list div:hover {
+        border: 1px solid white;
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    }
+    .scroll_wrapper .img_list div:hover img{
+        transform: scale(1.2);
+        transition: transform 0.3s ease; 
+    }
+     
+    /* .scroll_wrapper .img_list div:hover img {
+        max-width: 120%;
+        max-height: 100%;
+        
+    } */
     .slider_scrollbar{
         height: 24px;
         /* background-color: red; */
@@ -127,7 +163,7 @@
         top: -2px;
 
     }
-    /* ????意義不明 */
+   
     .slider_scrollbar .scrollbar-thumb::after{
         content: "";
         position: absolute;
@@ -136,9 +172,7 @@
         top: -10px;
         bottom: -10px;
     }
-    .scroll_wrapper .img_list img:hover{
-        box-shadow: 0px 0px 10px rgb(255, 255, 255);
-    }
+   
     .title {
         color: white;
         font-size: 3em;
@@ -287,17 +321,6 @@
 
             });
         });
-     
-        //點擊 see more 
-        // const seeMoreBtn = document.getElementById('seeMore');
-        // const centerImg = document.querySelector(".black_container .centerImg");
-        // seeMoreBtn.addEventListener('click',()=>{
-        //     setTimeout( ()=>{blackCloth.style.visibility = "visible";}, 300);
-        //     const backgroundImageStyle = document.body.style.backgroundImage;
-        //     const imageUrl = backgroundImageStyle.slice(4, -1).replace(/"/g, "");
-        //     centerImg.setAttribute('src',imageUrl);
-        // })
-        
         
     }
 
@@ -305,7 +328,7 @@
 
     //讀取圖片
     $.ajax({
-        url:'imgdata.json',
+        url:'/json/imgdata.json',
         dataType:'json',
         success:function(data){
             //顯示圖片文字
@@ -320,7 +343,10 @@
                 
                 // -----創建div---------
                 var imgNode = $(`
-                    <img src="${item.imgSrc}" data-name="${item.title}" data-description="${item.description}">
+                    <div>
+                        <img src="${item.imgSrc}" data-name="${item.title}" data-description="${item.description}">
+                    </div>
+                    
                 `)
                 imgNode.appendTo('.img_list');
             })
@@ -344,6 +370,7 @@
             <div class="des">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione earum maiores quaerat delectus consectetur non animi necessitatibus consequatur officia? Voluptatem at ex itaque officia obcaecati, accusantium sint modi pariatur ut!
             </div>
             <button class="see_btn" id="seeMore"> see more</button>
+            <div style="height: 10vh;"></div>
             <div class="buttons">
                 <div class="button" id="prev"><i class="bi bi-caret-left"></i></div>
                 <div class="button" id="next"><i class="bi bi-caret-right"></i></div>
