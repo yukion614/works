@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Minimal | Bootstrap portfolio template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- gLightbox CSS-->
+    <!-- <link rel="stylesheet" href="vendor/glightbox/css/glightbox.min.css"> -->
+    <!-- Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&amp;display=swap">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+     <!-- jquery  -->
+     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+   
+  </head>
+  <body>
+    
+      
+      
+        <div class="container-fluid px-4 py-5">
+          <div class="row">
+            <div class="col-lg-7">
+              <h1 class="item_title"></h1>
+              <p class="text-muted mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <!-- pic -->
+            <div class="col-lg-7">
+              <a class="glightbox product-view" id="pic" href="" data-gallery="gallery" data-glightbox="Tour de France" >
+                <!-- <img class="img-fluid mb-4" src="img/portfolio-3.jpg" alt="..."> -->
+              </a>
+              <a class="glightbox product-view" id="pic2" href="" data-gallery="gallery" data-glightbox="Tour de France" >
+                <!-- <img class="img-fluid mb-4" src="img/portfolio-3.jpg" alt="..."> -->
+              </a>
+            </div>
+
+            <div class="col-lg-5 position-sticky">
+              <h2>Idea</h2>
+              <!-- description -->
+              <p class="text-muted" id="idea">
+
+              </p>
+
+              <div class="p-4 bg-light mb-5">
+                <ul class="list-unstyled mb-0">
+                  <li class="d-flex mb-2">
+                    <h6 class="mb-0">Category:</h6>
+                    <p class="ms-3 text-muted mb-0" id="category">Creative</p>
+                  </li>
+                  <li class="d-flex mb-2">
+                    <h6 class="mb-0">Date:</h6>
+                    <p class="ms-3 text-muted mb-0" id="date">23 Dec 2019</p>
+                  </li>
+                  <li class="d-flex">
+                    <h6 class="mb-0">Tags:</h6>
+                    <p class="ms-3 text-muted mb-0" id="tags"></p>
+                  </li>
+                </ul>
+              </div>
+             
+            </div>
+          </div>
+          
+     
+     
+      
+    </div>
+  
+    <script>
+        
+      $(document).ready(function() {
+        // 獲取URL中的ID參數
+        let params = new URLSearchParams(window.location.search);
+        let imageId = params.get('id');
+
+        // 加載JSON數據並顯示對應的圖片詳情
+      
+        $.getJSON('/json/imgdata.json', function(data) {
+            let image = data.find(img => img.id == imageId);
+            if (image) {
+                $('.item_title').html(image.title);
+                let detailsImage = `<img class="img-fluid mb-4" src="${image.imgSrc}" alt="${image.title}">`;
+                $('#pic').html(detailsImage);
+                if(image.imgSrc2){
+                  let detailsImageTwo = `<img class="img-fluid mb-4" src="${image.imgSrc2}" alt="${image.title}">`;
+                  $('#pic2').html(detailsImageTwo);
+                }
+
+                $('#idea').html(image.description);
+                $('#category').html(image.category);
+                $('#date').html(image.date);
+                $('#tags').html(image.tags);
+            } else {
+                $('.product-view').html('<p>Image not found</p>');
+            }
+               
+           
+        });
+    });
+    
+    </script>
+    <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </body>
+</html>

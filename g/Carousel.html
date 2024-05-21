@@ -14,45 +14,38 @@
 
 <style>
     body{
-        padding: 0px;
-        margin: 0px;
+        padding: 0;
+        margin: 0;
+        background-image: url("");
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* box-sizing: content-box; */
+        /* display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        /* width: 100%;
         height: 100vh;
-        background-color: black;
-        position: relative;
+        background-color: bisque;  */
     }
     .container{
-        
-
         display: flex;
         justify-content: center;
         align-items: center;
-
         height: 100vh;
-        background-image: url('');
-
-        margin: 20px;
-        border-radius: 10px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        transition: opacity 0.5s ease; 
     }
 
     .scroll_wrapper{
         /* width: 936px; */
         width: 786px;
-        /* //786-18 = 768 */
+
        
     }
     .buttons{
-        
-        position: relative;
+       position: relative;
         display: flex;
         /* flex-direction: column; */
         justify-content: space-between;
-        width: 850px;
-        left: -30px;
-        top:110px;
-
+        top:70px;
         
 
     }
@@ -67,19 +60,14 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        
-        transition: transform 0.5s ease;
-    }
-    .scroll_wrapper .button:hover{
-        background-color: gray;
-
-        
     }
     .scroll_wrapper .button#prev{
         visibility:hidden;
     
     }
+    /* .scroll_wrapper .button#next{
 
+    } */
     .img_list{
         display: grid;
         grid-template-columns: repeat(10,1fr);
@@ -87,48 +75,20 @@
         overflow-x: auto;
         scrollbar-width: none;
         margin-bottom: 10px;
-        /* padding-top: 10px;
-        padding-bottom: 10px; */
-        padding: 10px;
-   
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     .img_list::-webkit-scrollbar{
         display: none;
     }
    
-    .scroll_wrapper .img_list div{
+    .scroll_wrapper .img_list img{
+        margin: 0;
         width: 250px;
-        height:  170px;
+        height:  250px;
+        object-fit: cover;
         border-radius: 10px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-       
-
     }
-
-    .scroll_wrapper .img_list div  img{
-        max-width: 120%;
-  
-        border-radius: inherit;
-    
-    }
-    .scroll_wrapper .img_list div:hover {
-        border: 1px solid white;
-        box-shadow: 0px 0px 10px rgb(255, 255, 255);
-    }
-    .scroll_wrapper .img_list div:hover img{
-        transform: scale(1.2);
-        transition: transform 0.3s ease; 
-    }
-     
-    /* .scroll_wrapper .img_list div:hover img {
-        max-width: 120%;
-        max-height: 100%;
-        
-    } */
     .slider_scrollbar{
         height: 24px;
         /* background-color: red; */
@@ -163,7 +123,7 @@
         top: -2px;
 
     }
-   
+    /* ????意義不明 */
     .slider_scrollbar .scrollbar-thumb::after{
         content: "";
         position: absolute;
@@ -172,7 +132,9 @@
         top: -10px;
         bottom: -10px;
     }
-   
+    .scroll_wrapper .img_list img:hover{
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    }
     .title {
         color: white;
         font-size: 3em;
@@ -193,39 +155,9 @@
     .see_btn:hover{
         box-shadow: 1px 1px 10px rgb(0, 0, 0,0.2);
     }
-    .black_container{
-        background-color: rgb(0, 0, 0,0.8);
-        /* background-color: black; */
-        z-index: 1000;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100vh;
-        visibility: hidden;
-        /* transition: visibility 0s, opacity 0.5s ease-in-out; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .black_container .close{
-        position: absolute;
-        color: white;
-        top: 20px;
-        right: 20px;
-    }
-    .centerImg{
-        width: 70%;
-        height: auto;
-      
-        border: 8px solid white;
-    }
-   
 </style>
 
 <script>
-  
     
  
    //
@@ -293,22 +225,15 @@
             handleScrollBtn();
             updataScrollThumsPositoin();
         })
-
-        //關閉黑幕
-        const closeB = document.querySelector(".black_container .close");
-        const blackCloth = document.querySelector(".black_container");
-        closeB.addEventListener('click',()=>{
-            blackCloth.style.visibility = "hidden";
-        })
-
         //
-        // const backgroundImage = document.body;
-        const containerImage = document.querySelector('.container')
+        const backgroundImage = document.body;
         const title = document.querySelector(".container .scroll_wrapper .title");
         const des = document.querySelector(".container .scroll_wrapper .des");
 
-        // 點選後變更背景圖片
+        // // 點選後變更背景圖片
         const imgs = document.querySelectorAll('.container .scroll_wrapper .img_list');
+
+
       
         imgs.forEach((img) => {
             img.addEventListener('mousedown', (e) => {
@@ -316,40 +241,43 @@
              
                 title.innerHTML =  e.target.getAttribute('data-name');
                 des.innerHTML = e.target.getAttribute('data-description');
-                // backgroundImage.style.backgroundImage =`url("${imgUrl}")`;
-                containerImage.style.backgroundImage = `url("${imgUrl}")`;
+                backgroundImage.style.backgroundImage =`url("${imgUrl}")`;
 
             });
         });
-        
+     
+        //點擊 see more 後變更文字
+        const seeMoreBtn = document.getElementById('seeMore');
+        const updateTitleDescription = () =>{
+            seeMoreBtn.addEventListener('click',()=>{
+
+            })
+        }
     }
 
     window.addEventListener('load',initSlider);
 
     //讀取圖片
     $.ajax({
-        url:'/json/imgdata.json',
+        url:'imgdata.json',
         dataType:'json',
         success:function(data){
             //顯示圖片文字
-            const containerImage = document.querySelector('.container');
-            containerImage.style.backgroundImage =`url("${data[0].imgSrc}")`;
+            const AbackgroundImage = document.body;
+            AbackgroundImage.style.backgroundImage =`url("${data[0].imgSrc}")`;
             const Atitle = document.querySelector(".container .scroll_wrapper .title");
             Atitle.innerHTML = data[0].title;
             const Ades = document.querySelector(".container .scroll_wrapper .des");
             Ades.innerHTML = data[0].description;
 
-            data.forEach(function(item){
+            // data.forEach(function(item){
                 
-                // -----創建div---------
-                var imgNode = $(`
-                    <div>
-                        <img src="${item.imgSrc}" data-name="${item.title}" data-description="${item.description}">
-                    </div>
-                    
-                `)
-                imgNode.appendTo('.img_list');
-            })
+            //     // -----創建div---------
+            //     var imgNode = $(`
+            //         <img src="${item.imgSrc}" data-name="${item.title}" data-description="${item.description}">
+            //     `)
+            //     imgNode.appendTo('.img_list');
+            // })
             //
             
 
@@ -370,7 +298,6 @@
             <div class="des">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione earum maiores quaerat delectus consectetur non animi necessitatibus consequatur officia? Voluptatem at ex itaque officia obcaecati, accusantium sint modi pariatur ut!
             </div>
             <button class="see_btn" id="seeMore"> see more</button>
-            <div style="height: 10vh;"></div>
             <div class="buttons">
                 <div class="button" id="prev"><i class="bi bi-caret-left"></i></div>
                 <div class="button" id="next"><i class="bi bi-caret-right"></i></div>
@@ -378,7 +305,12 @@
 
             <div class="img_list">
                 <!-- <img src="" alt=""> -->
-                
+                <img src="/img/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf_105762-2224.jpg" alt="">
+                <img src="/img/beautiful-model-girl-with-perfect-fresh-clean-skin-youth-skin-care-concept-isolated-pastel-brown-background_658552-32.jpg" alt="">
+                <img src="/img/dynamic-portrait-young-man-woman-dancing-hiphop-isolated-black-background-with-mixed-lights-effect_155003-46269.jpg" alt="">
+                <img src="/img/majestic-mountain-peak-tranquil-winter-landscape-generated-by-ai_188544-15662.jpg" alt="">
+                <img src="/img/modern-podium-product-design-against-backdrop-tropical-forest_1268-31490.jpg" alt="">
+                <img src="/img/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="">
             </div>
             <div class="slider_scrollbar">
                 <div class="slider_track">
@@ -389,14 +321,9 @@
             </div>
            
         </div>
-        <div class="black_container" >
-            <img class="centerImg" src="/img/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf_105762-2224.jpg" alt="">
-            <div class="close"><i class="bi bi-x-circle-fill"></i></div>
-
-        </div>
 
 
     </div>
-   
+    
 </body>
 </html>
