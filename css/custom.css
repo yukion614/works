@@ -47,7 +47,7 @@ animation-range: 0% 5%;
 }
 .humanImg{
 position: absolute;
-top: 267px;
+top: 164px;
 
 
 }
@@ -269,15 +269,29 @@ height: 848px;
 margin-top: 100px;
 }
 .enterBtn{
-width: 300px;
-height: 80px;
-border-radius: 41px;
-background-color: white;
-font-size: 24px;
-display: flex;
-justify-content: center;
-align-items: center;
+    width: 290px;
+    height: 70px;
+    border-radius: 41px;
+    background-color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:0px 0px 0px #000000;
 } 
+.enterBtn:hover{
+    background-color: #B22B2B;
+    color: white;
+    box-shadow:3px 3px 10px #000000;
+    transition: 0.4s ease;
+}
+.enterBtn .bi-arrow-up-short{
+    transition: rotate 1s ease;
+}
+
+.enterBtn:hover .bi-arrow-up-short{
+    transform: rotate(45deg);
+}
 .painter{
 width: 654px;
 height: 303px;
@@ -582,4 +596,18 @@ width: 130px;
 height: 2px;
 background-color: white;
 margin: 0px 10px 0px 10px;
+}
+
+.footer_icons {
+    color: white;
+}
+
+.back_btn{
+    color:grey;
+   
+    transition: transform 0.5s ease;
+}
+
+.back_btn:hover{
+    color: #B22B2B;
 }

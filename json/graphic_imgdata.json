@@ -1,0 +1,129 @@
+[
+    {   "id": 1,
+        "title":"單車服設計",
+        "description":"以該企業的logo色系做出發點，強調速度跟力量的設計",
+        "imgSrc":"img/graphic/cycling_clothes.jpg",
+        "imgSrc2":"",
+        "imgSrc3":"",
+        "category":"單車服",
+        "date":"2018.01.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 2,
+        "title":"展覽攤位kv設計",
+        "description":"帶出馬祖的觀光特點，以文青童趣的方式做視覺出發點",
+        "imgSrc":"img/graphic/Exhibition_1.JPG",
+        "imgSrc2":"img/graphic/Exhibition_2.JPG",
+        "imgSrc3":"img/graphic/Exhibition_3.JPG",
+        "category":"展覽視覺設計",
+        "date":"2018.01.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 3,
+        "title":"酒廠啤酒自拍存錢筒",
+        "description":"利用拍貼機特性將自己的相片製作酒箱的紙盒存錢筒。",
+        "imgSrc":"img/graphic/piggybank_1.JPG",
+        "imgSrc2":"img/graphic/piggybank_2.JPG",
+        "imgSrc3":"img/graphic/piggybank_3.JPG",
+        "category":"多媒體互動設計",
+        "date":"2022.10.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 4,
+        "title":"泰國文化節kv",
+        "description":"利用泰國多種元素做幾何拼貼",
+        "imgSrc":"img/graphic/thai_1.jpg",
+        "imgSrc2":"img/graphic/thai_2.jpg",
+        "imgSrc3":"img/graphic/thai_3.jpg",
+        "category":"活動視覺設計，場地規劃",
+        "date":"2022.4.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 5,
+        "title":"101商辦佈置",
+        "description":"該公司有贊助f1賽車，也以此為傲，故以此作主要表現",
+        "imgSrc":"img/graphic/f1_1.jpg",
+        "imgSrc2":"img/graphic/f1_2.jpg",
+        "imgSrc3":"img/graphic/f1_3.jpg",
+        "category":"視覺設計，場地規劃",
+        "date":"2022.4.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 6,
+        "title":"表揚會",
+        "description":"會場場地規劃",
+        "imgSrc":"img/graphic/fn_1.jpg",
+        "imgSrc2":"img/graphic/fn_2.jpg",
+        "imgSrc3":"img/graphic/fn_3.jpg",
+        "category":"場地規劃",
+        "date":"2022.4.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 7,
+        "title":"婚禮背板設計",
+        "description":"結婚的男女的姓氏作為主要字體的背板，希望帶出華麗且典雅的視覺風格",
+        "imgSrc":"img/graphic/wedding.jpg",
+        "imgSrc2":"",
+        "imgSrc3":"",
+        "category":"拍照背板設計，場地佈置",
+        "date":"2022.4.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 8,
+        "title":"選舉類型設計",
+        "description":"",
+        "imgSrc":"img/graphic/election_1.jpg",
+        "imgSrc2":"img/graphic/election_2.jpg",
+        "imgSrc3":"img/graphic/election_3.jpg",
+        "category":"平面設計，場地佈置",
+        "date":"2022.4.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 9,
+        "title":"LOGO設計",
+        "description":"依照店主們所養的寵物搭配動漫風格所設計成的ＬＯＧＯ",
+        "imgSrc":"img/graphic/toysLogo_1.jpg",
+        "imgSrc2":"img/graphic/toysLogo_2.jpg",
+        "imgSrc3":"",
+        "category":"平面設計",
+        "date":"2022.8.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 10,
+        "title":"晚宴佈置",
+        "description":"依照業主當天的主題做宴會廳佈置",
+        "imgSrc":"img/graphic/4620693218559139713.b40b9bf1a2fa0db8a779875b252a2f30.21092017.jpg",
+        "imgSrc2":"img/graphic/4620693218559139713.2ad4ffe158e3944e9df3f635886ba3fa.21092017.jpg",
+        "imgSrc3":"",
+        "category":"平面設計",
+        "date":"2022.8.01",
+        "tags":"Art,Illustration"
+
+    },
+    {   "id": 11,
+        "title":"新品發表",
+        "description":"",
+        "imgSrc":"img/graphic/書2-01.jpg",
+        "imgSrc2":"img/graphic/35237607236_f173939aef_o.jpg",
+        "imgSrc3":"",
+        "category":"平面設計",
+        "date":"2022.8.01",
+        "tags":"Art,Illustration"
+
+    }
+
+
+    
+
+
+
+]    

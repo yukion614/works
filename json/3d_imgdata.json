@@ -1,0 +1,161 @@
+[
+    {   "id": 1,
+        "title":"傳說對決舞台",
+        "description":"以紅/藍兩色作為代表，設計的比賽舞台，帶入賽博朋克建築為基調的幾何設計風格。",
+        "imgSrc":"img/3dworks/01.jpg",
+        "imgSrc2":"img/3dworks/01-2.jpg",
+        "imgSrc3":"",
+        "category":"舞台設計",
+        "date":"2020.06.12",
+        "tags":"Art,Branding,Illustration"
+
+    },
+    {   
+        "id": 2,
+        "title":"Berryella",
+        "description":"草莓蛋糕做為設計出發點，加入人物的髮型，和服裝中。",
+        "imgSrc":"img/3dworks/role_1.jpg",
+        "imgSrc2":"img/3dworks/role_2.jpg",
+        "imgSrc3":"img/3dworks/role_3.jpg",
+        "category":"角色設計/lowpoly",
+        "date":"2023.10.01",
+        "tags":"Art,3dsmax,photoshop"
+    },
+    {   
+        "id": 3,
+        "title":"oneboy 發表會設計",
+        "description":"寒冷/冰塊，來強調冰峰衣的產品特性，並將元素運用至舞台，同時透過led的影像切換，也可以表達出炎熱的中保持涼爽的氛圍。",
+        "imgSrc":"img/3dworks/stage_1.jpg",
+        "imgSrc2":"img/3dworks/exhibit_1.jpg",
+        "imgSrc3":"img/3dworks/exhibit_2.jpg",
+        "category":"舞台設計/拍照區設計",
+        "date":"2021.05.28"
+    },
+    {   
+        "id": 4,
+        "title":"桃園電競舞台設計",
+        "description":"dddddd",
+        "imgSrc":"img/3dworks/TaoyuanE-SportsStage_1.jpg",
+        "imgSrc2":"img/3dworks/11.12 謝謝收看-01.jpg",
+        "imgSrc3":"",
+        "category":"舞台設計",
+        "date":"2020.06.12",
+        "tags":"Art,Branding,Illustration"
+    },
+    {   
+        "id": 5,
+        "title":"zb練習",
+        "description":"zbrush練習作品",
+        "imgSrc":"img/3dworks/machineGirl.jpg",
+        "imgSrc2":"",
+        "imgSrc3":"",
+        "category":"角色設計",
+        "date":"2012.05.10",
+        "tags":"Art,3dsmax,ZBrush"
+    },
+    {   
+        "id": 6,
+        "title":"精油銷售佈置",
+        "description":"配合各種類型的產品搭設不同的使用場景",
+        "imgSrc":"img/3dworks/essential_oils_1.jpg",
+        "imgSrc2":"img/3dworks/essential_oils_2.jpg",
+        "imgSrc3":"img/3dworks/essential_oils_3.jpg",
+        "category":"展示攤位數計",
+        "date":"2020.05.12",
+        "tags":"Art,Illustration"
+    },
+    {   
+        "id": 7,
+        "title":"化妝品陳列架",
+        "description":"主要展架以透明壓克力貼金卡點製作，底座以壓克力燈箱貼美耐板製作",
+        "imgSrc":"img/3dworks/cosmetic_1.jpg",
+        "imgSrc2":"img/3dworks/cosmetic_2.jpg",
+        "imgSrc3":"img/3dworks/cosmetic_3.jpg",
+        "category":"美妝品陳列架",
+        "date":"2015.03.28",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 8,
+        "title":"手搖店概念設計",
+        "description":"HHHH",
+        "imgSrc":"img/3dworks/Beverage_shop.jpg",
+        "imgSrc2":"",
+        "imgSrc3":"",
+        "category":"店面設計",
+        "date":"2020.06.12",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 9,
+        "title":"3D 練習",
+        "description":"練習",
+        "imgSrc":"img/3dworks/IMG_4515.jpg",
+        "imgSrc2":"img/3dworks/IMG_45162.jpg",
+        "imgSrc3":"",
+        "category":"",
+        "date":"2015.06.12",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 10,
+        "title":"3D 練習2",
+        "description":"練習",
+        "imgSrc":"img/3dworks/IMG_4514-1.jpg",
+        "imgSrc2":"img/3dworks/IMG_4514-2.jpg",
+        "imgSrc3":"",
+        "category":"",
+        "date":"2015.06.12",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 11,
+        "title":"卡通機具車",
+        "description":"",
+        "imgSrc":"img/3dworks/cartoon.jpg",
+        "imgSrc2":"",
+        "imgSrc3":"",
+        "category":"",
+        "date":"2022.04.12",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 12,
+        "title":"體育館舞臺模擬",
+        "description":"",
+        "imgSrc":"img/3dworks/dna_1.jpg",
+        "imgSrc2":"img/3dworks/dna_2.jpg",
+        "imgSrc3":"img/3dworks/dna_3.jpg",
+        "category":"",
+        "date":"2022.04.12",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 13,
+        "title":"展覽攤位示意圖",
+        "description":"",
+        "imgSrc":"img/3dworks/101.jpg",
+        "imgSrc2":"img/3dworks/102 (1).jpg",
+        "imgSrc3":"",
+        "category":"",
+        "date":"2022.04.12",
+        "tags":"Art,3dsmax"
+    },
+    {   
+        "id": 14,
+        "title":"拍照區",
+        "description":"",
+        "imgSrc":"img/3dworks/50th_1.jpg",
+        "imgSrc2":"img/3dworks/50th_2.jpg",
+        "imgSrc3":"img/3dworks/50th_3.jpg",
+        "category":"",
+        "date":"2023.11.10",
+        "tags":"Art,3dsmax"
+    }
+    
+    
+
+
+
+
+]    

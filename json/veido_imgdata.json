@@ -1,0 +1,47 @@
+[
+    {   "id": 1,
+        "title":"地震宣導影片",
+        "description":"以氣象局吉祥物做地政科普宣導影片。",
+        "imgSrc":"img/video/weatherPic.png",
+        "videoSrc":"img/video/weather.mp4",
+        "category":"影片製作",
+        "date":"2021.5.10",
+        "tags":"Art,aftereffect"
+
+    },
+    {   "id": 2,
+        "title":"動線規劃動畫",
+        "description":"依照當地活動範圍製作的人潮動線動畫",
+        "imgSrc":"img/video/ponghu.png",
+        "videoSrc":"img/video/簡易動線動畫.mp4",
+        "category":"影片製作",
+        "date":"2024.3.12",
+        "tags":"Art,aftereffect"
+
+    },
+    {   "id": 3,
+        "title":"建築動畫",
+        "description":"當地建築，文化特色動畫",
+        "imgSrc":"img/video/kinmen_pic.png",
+        "videoSrc":"img/video/KinmenVideo.mp4",
+        "category":"影片製作",
+        "date":"2024.3.12",
+        "tags":"Art,aftereffect"
+
+    },
+    {   "id": 4,
+        "title":"古物影片練習",
+        "description":"",
+        "imgSrc":"img/video/school 故宮剪片作業.png",
+        "videoSrc":"img/video/school 故宮剪片作業.mp4",
+        "category":"影片製作",
+        "date":"2024.3.12",
+        "tags":"Art,aftereffect"
+
+    }
+  
+
+   
+
+
+]    
