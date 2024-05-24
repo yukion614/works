@@ -18,11 +18,13 @@
      <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
      <!-- css -->
      <link rel="stylesheet" href="css/custom.css">
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
   <body>
  
-    <nav class="row navbar navbar-expand-xl navbar-light" style="position: absolute;"> 
-        <!-- <nav class="navbar navbar-expand-xl navbar-dark bg-dark"> -->
+    <!-- <nav class="row navbar navbar-expand-xl navbar-light"> 
         <div class="container">
             <a class="navbar-brand" href="index.html">Expand at xl</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,34 +44,49 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-        
-    </nav>
+    </nav> -->
+
+    
     <div class="sidebar">
       <div class="sidebar-inner d-flex flex-column">
-        <div class="px-4 py-5"><a href="index.html"><img src="img/logo.svg" alt="" width="90"></a></div>
-        <div class="sidebar-menu-holder flex-grow-1">
-          <ul class="sidebar-menu list-unstyled">
-            <li class="mb-2 pb-1">
-              <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="#">Graphic</a>
-            </li>
-            <li class="mb-2 pb-1">
-              <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_3d works.html">3d works</a>
-            </li>
-            <li class="mb-2 pb-1">
-              <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_veido.html">veido</a>
-            </li>
-          </ul>
-        </div>
+        <!-- <div class="px-4 py-5"><a href="index.html"><img src="img/logo.svg" alt="" width="90"></a></div> -->
+       
+          <a class="px-4 py-5" href="index.html"><img src="img/icons/LOGO.png" alt="" style="height: 30px;"></a>
+         
+          <div class="sidebar-menu-holder flex-grow-1 " id="navbarsExample06">
+            <ul class="sidebar-menu list-unstyled">
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm " href="index.html">關於我</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm " href="index.html#section4">經歷</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="#">Graphic</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_3d works.html">3d works</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_veido.html">veido</a>
+              </li>
+            </ul>
+          </div>
 
       </div>
+      <!--  -->
+      
     </div>
 
     <div class="page-holder">
       <div class="container-fluid px-4 py-5">      
         <div class="row gy-4 gx-5 masonry-wrapper">
-          <!-- item -->
+          
+      
+            <!-- item -->
+          
+          
         </div>
       </div>
       <!-- container-fluid end -->
@@ -83,16 +100,16 @@
       
       //讀取圖片
       $.ajax({
-          url:'json/imgdata.json',
+          url:'/json/graphic_imgdata.json',
           dataType:'json',
           success:function(data){
               data.forEach(function(item){
                   var imgNode = $(`
                       <div class="col-lg-4 col-md-6 grid-item">
-                        <div class="listing-item ps-0">
+                        <div class="listing-item ps-0" >
                           <div class="position-relative">
-                            <a class="reset-anchor d-block listing-img-holder" href="detail.html?id=${item.id}"><img class="img-fluid rounded-lg" src="${item.imgSrc}" alt="Treasure"/>
-                            <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                            <a class="reset-anchor d-block listing-img-holder" href="detail_graphic.html?id=${item.id}"><img class="img-fluid rounded-lg" src="${item.imgSrc}" alt="Treasure"/>
+                            <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>詳細</span>
                               <svg class="svg-icon text-primary svg-icon-sm ms-1">
                                 <use xlink:href="#arrow-right-1"> </use>
                               </svg>
@@ -101,7 +118,7 @@
                             </a>
                           </div>
                         
-                          <div class="py-3"><a class="reset-anchor" href="detail.html?id=${item.id}">
+                          <div class="py-3"><a class="reset-anchor" href="detail_graphic.html?id=${item.id}">
                               <h2 class="h5 listing-item-heading">${item.title}</h2></a>
                             <p class="text-sm mb-0 listing-item-description">${item.description}</p>
                           </div>
@@ -121,6 +138,10 @@
       });
       // 
       
+    </script>
+    <!-- aos -->
+    <script>
+      AOS.init();
     </script>
     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

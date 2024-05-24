@@ -20,50 +20,35 @@
      <link rel="stylesheet" href="css/custom.css">
   </head>
   <body>
- 
-    <nav class="row navbar navbar-expand-xl navbar-light" style="position: absolute;"> 
-        <!-- <nav class="navbar navbar-expand-xl navbar-dark bg-dark"> -->
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Expand at xl</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <div class="collapse navbar-collapse" id="navbarsExample06">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a type="buttom" class="nav-link" href="index.html">關於我</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"  href="#section2">作品集</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#section4">經歷</a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-        
-    </nav>
     <div class="sidebar">
       <div class="sidebar-inner d-flex flex-column">
-        <div class="px-4 py-5"><a href="index.html"><img src="img/logo.svg" alt="" width="90"></a></div>
-        <div class="sidebar-menu-holder flex-grow-1">
-          <ul class="sidebar-menu list-unstyled">
-            <li class="mb-2 pb-1">
-              <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="#">Graphic</a>
-            </li>
-            <li class="mb-2 pb-1">
-              <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm　active" href="carousel_3d works.html">3d works</a>
-            </li>
-            <li class="mb-2 pb-1">
-              <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_veido.html">veido</a>
-            </li>
-          </ul>
-        </div>
+        <!-- <div class="px-4 py-5"><a href="index.html"><img src="img/logo.svg" alt="" width="90"></a></div> -->
+       
+          <a class="px-4 py-5" href="index.html"><img src="img/icons/LOGO.png" alt="" style="height: 30px;"></a>
+         
+          <div class="sidebar-menu-holder flex-grow-1 " id="navbarsExample06">
+            <ul class="sidebar-menu list-unstyled">
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm " href="index.html">關於我</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm " href="index.html#section4">經歷</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_graphic.html">Graphic</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="#">3d works</a>
+              </li>
+              <li class="mb-2 pb-1">
+                <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="carousel_veido.html">veido</a>
+              </li>
+            </ul>
+          </div>
 
       </div>
+      <!--  -->
+      
     </div>
 
     <div class="page-holder">
@@ -83,7 +68,7 @@
       
       //讀取圖片
       $.ajax({
-          url:'/json/imgdata.json',
+          url:'/json/3d_imgdata.json',
           dataType:'json',
           success:function(data){
               data.forEach(function(item){
@@ -91,7 +76,7 @@
                       <div class="col-lg-4 col-md-6 grid-item">
                         <div class="listing-item ps-0">
                           <div class="position-relative">
-                            <a class="reset-anchor d-block listing-img-holder" href="detail.html?id=${item.id}"><img class="img-fluid rounded-lg" src="${item.imgSrc}" alt="Treasure"/>
+                            <a class="reset-anchor d-block listing-img-holder" href="detail_3dworks.html?id=${item.id}"><img class="img-fluid rounded-lg" src="${item.imgSrc}" alt="Treasure"/>
                             <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
                               <svg class="svg-icon text-primary svg-icon-sm ms-1">
                                 <use xlink:href="#arrow-right-1"> </use>
@@ -101,7 +86,7 @@
                             </a>
                           </div>
 
-                          <div class="py-3"><a class="reset-anchor" href="detail.html?id=${item.id}">
+                          <div class="py-3"><a class="reset-anchor" href="detail_3dworks.html?id=${item.id}">
                               <h2 class="h5 listing-item-heading">${item.title}</h2></a>
                             <p class="text-sm mb-0 listing-item-description">${item.description}</p>
                           </div>
