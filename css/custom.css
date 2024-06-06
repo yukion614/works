@@ -251,7 +251,7 @@ color: white;
 color: white;
 }
 .mainbg{
-background-image: url('./img/Rectangle15.jpg');
+background-image: url('/img/Rectangle15.jpg');
 height: 762px;
 position: absolute;
 width: 100%;
